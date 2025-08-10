@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Historial de precios</title>
+</head>
+<body>
+  <h1>Historial de precios</h1>
+  <p><a href="/">Nueva búsqueda</a></p>
+  <table border="1" cellpadding="6" cellspacing="0">
+    <tr><th>Fecha UTC</th><th>Origen</th><th>Destino</th><th>Salida</th><th>Regreso</th><th>Precio</th></tr>
+    {% for fila in datos %}
+    <tr>
+      <td>{{ fila['0'] if '0' in fila else fila.get('Fecha', '') }}</td>
+      <td>{{ fila['1'] if '1' in fila else fila.get('Origen', '') }}</td>
+      <td>{{ fila['2'] if '2' in fila else fila.get('Destino', '') }}</td>
+      <td>{{ fila['3'] if '3' in fila else fila.get('Salida', '') }}</td>
+      <td>{{ fila['4'] if '4' in fila else fila.get('Regreso', '') }}</td>
+      <td>{{ fila['5'] if '5' in fila else fila.get('Precio', '') }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
